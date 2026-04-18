@@ -176,15 +176,120 @@
     .fade-up-d3 { transition-delay: 0.3s; }
     .fade-up-d4 { transition-delay: 0.4s; }
 
+    /* STICKY MOBILE CTA */
+    .sticky-cta {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 1rem 1.5rem;
+      background: rgba(28,28,30,0.97);
+      border-top: 1px solid rgba(201,168,76,0.25);
+      backdrop-filter: blur(12px);
+    }
+    .sticky-cta a {
+      display: block; text-align: center;
+      background: var(--gold); color: var(--charcoal);
+      padding: 0.9rem; font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    /* SKILL PILLS (mobile only, hidden on desktop) */
+    .skill-pills { display: none; flex-wrap: wrap; gap: 0.6rem; }
+    .skill-pill {
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold); font-size: 0.8rem;
+      padding: 0.35rem 0.9rem; letter-spacing: 0.03em;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-photo-wrap { max-width: 260px; margin: 0 auto; }
+      /* Body padding for sticky CTA */
+      body { padding-bottom: 80px; }
+
+      /* Sticky CTA visible */
+      .sticky-cta { display: block; }
+
+      /* Nav — reduce gap */
+      .nav-links { gap: 1.4rem; }
+      .nav-links a { font-size: 0.72rem; }
+
+      /* Hero — stack vertically, photo first on mobile */
+      .hero { padding: 6rem 0 3rem; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+      }
+      /* Move photo to top on mobile */
+      .hero-photo-wrap {
+        order: -1;
+        width: 100%; max-width: 100%;
+        border-radius: 0;
+      }
+      /* Circular crop on mobile */
+      .hero-photo {
+        width: 130px; height: 130px;
+        border-radius: 50%;
+        object-fit: cover; object-position: top center;
+        display: block; margin: 0 auto;
+        border: 2px solid var(--gold);
+        filter: grayscale(20%) contrast(1.05);
+      }
+      .hero-photo-label {
+        text-align: center;
+        border-top: none; padding: 0.8rem 1rem 1rem;
+      }
+      .hero-photo-wrap {
+        background: transparent;
+        border: none;
+        padding-top: 1rem;
+      }
+
+      /* Hero text */
+      .hero-label { font-size: 0.65rem; }
+      h1 { font-size: 2.4rem; }
+      .hero-sub { font-size: 0.95rem; }
+      .hero-seeking { font-size: 0.82rem; }
+      /* Hide desktop CTA — sticky one handles it */
+      .hero-cta { display: none; }
+
+      /* Stats — keep 3 col but compact */
       .stats-row { grid-template-columns: repeat(3, 1fr); }
-      .timeline-item { grid-template-columns: 70px 1px 1fr; gap: 0 1.2rem; }
-      .skills-layout { grid-template-columns: 1fr; }
+      .stat-card { padding: 1.2rem 0.8rem; }
+      .stat-num { font-size: 1.8rem; }
+      .stat-label { font-size: 0.6rem; }
+
+      /* Sections */
+      section { padding: 4rem 0; }
+      h2 { font-size: 1.7rem; margin-bottom: 2rem; }
+
+      /* Capabilities — single col */
+      .capabilities-grid { grid-template-columns: 1fr; }
+
+      /* Timeline — tighter */
+      .timeline-item { grid-template-columns: 65px 1px 1fr; gap: 0 1rem; padding-bottom: 2.5rem; }
+      .t-date { font-size: 0.7rem; }
+      .t-role { font-size: 1.15rem; }
+
+      /* Skills — hide bars, show pills */
+      .skill-list { display: none; }
+      .skill-pills { display: flex; }
+
+      /* Projects — single col */
       .projects-row { grid-template-columns: 1fr; }
-      .contact-inner { grid-template-columns: 1fr; }
+
+      /* Contact */
+      .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-section::before { font-size: 8rem; }
+    }
+
+    @media (max-width: 400px) {
+      .container { padding: 0 1.2rem; }
+      h1 { font-size: 2rem; }
+      .stats-row { grid-template-columns: repeat(3, 1fr); }
+      .stat-num { font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -344,6 +449,16 @@
         <div class="skill-row"><div class="skill-name">AI Agent Development</div><div class="skill-track"><div class="skill-fill" style="width:78%"></div></div></div>
         <div class="skill-row"><div class="skill-name">Team Leadership</div><div class="skill-track"><div class="skill-fill" style="width:90%"></div></div></div>
       </div>
+      <div class="skill-pills fade-up">
+        <span class="skill-pill">Strategy and Planning</span>
+        <span class="skill-pill">GTM Execution</span>
+        <span class="skill-pill">Program Management</span>
+        <span class="skill-pill">Stakeholder Management</span>
+        <span class="skill-pill">Institutional BD</span>
+        <span class="skill-pill">Investor Documentation</span>
+        <span class="skill-pill">AI Agent Development</span>
+        <span class="skill-pill">Team Leadership</span>
+      </div>
       <div class="credentials fade-up fade-up-d2">
         <div class="cred-card"><span class="cred-icon">🎓</span><div><div class="cred-title">MBA, IIM Bodh Gaya (2020)</div><div class="cred-sub">Indian Institute of Management</div></div></div>
         <div class="cred-card"><span class="cred-icon">⚙️</span><div><div class="cred-title">B.Tech, SMIT (2018)</div><div class="cred-sub">Sikkim Manipal Institute of Technology</div></div></div>
@@ -394,6 +509,10 @@
     </div>
   </div>
 </section>
+
+<div class="sticky-cta">
+  <a href="mailto:dhrupadkumarm2020@iimbg.ac.in">Get In Touch</a>
+</div>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
