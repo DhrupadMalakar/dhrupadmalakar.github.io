@@ -16,6 +16,109 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  /* PREMIUM FIRST-FOLD ANIMATIONS */
+
+.hero-label::before {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: lineReveal 0.9s ease forwards 0.4s;
+}
+
+.hero-left h1,
+.hero-sub,
+.hero-seeking,
+.hero-cta,
+.hero-photo-wrap,
+.stats-row {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroReveal 0.8s ease forwards;
+}
+
+.hero-left h1 {
+  animation-delay: 0.6s;
+}
+
+.hero-sub {
+  animation-delay: 0.9s;
+}
+
+.hero-seeking {
+  animation-delay: 1.05s;
+}
+
+.hero-cta {
+  animation-delay: 1.2s;
+}
+
+.hero-photo-wrap {
+  animation-delay: 1s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform-style: preserve-3d;
+}
+
+.stats-row {
+  animation-delay: 1.45s;
+}
+
+.hero-photo-wrap:hover {
+  transform: translateY(-6px) rotateX(2deg) rotateY(-2deg);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.btn-gold:hover::after {
+  animation: buttonShine 0.8s ease;
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lineReveal {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes buttonShine {
+  from {
+    left: -120%;
+  }
+  to {
+    left: 140%;
+  }
+}
   <style>
   @media (min-width: 769px) {
   .cap-icon {
