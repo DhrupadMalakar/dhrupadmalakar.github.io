@@ -16,109 +16,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  /* PREMIUM FIRST-FOLD ANIMATIONS */
-
-.hero-label::before {
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: lineReveal 0.9s ease forwards 0.4s;
-}
-
-.hero-left h1,
-.hero-sub,
-.hero-seeking,
-.hero-cta,
-.hero-photo-wrap,
-.stats-row {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroReveal 0.8s ease forwards;
-}
-
-.hero-left h1 {
-  animation-delay: 0.6s;
-}
-
-.hero-sub {
-  animation-delay: 0.9s;
-}
-
-.hero-seeking {
-  animation-delay: 1.05s;
-}
-
-.hero-cta {
-  animation-delay: 1.2s;
-}
-
-.hero-photo-wrap {
-  animation-delay: 1s;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  transform-style: preserve-3d;
-}
-
-.stats-row {
-  animation-delay: 1.45s;
-}
-
-.hero-photo-wrap:hover {
-  transform: translateY(-6px) rotateX(2deg) rotateY(-2deg);
-  box-shadow: 0 24px 70px rgba(0,0,0,0.35);
-}
-
-.btn {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-gold::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 80%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.35),
-    transparent
-  );
-  transform: skewX(-20deg);
-}
-
-.btn-gold:hover::after {
-  animation: buttonShine 0.8s ease;
-}
-
-@keyframes heroReveal {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes lineReveal {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
-@keyframes buttonShine {
-  from {
-    left: -120%;
-  }
-  to {
-    left: 140%;
-  }
-}
   <style>
   @media (min-width: 769px) {
   .cap-icon {
@@ -537,6 +434,228 @@
   }
 }
     
+  
+
+/* BOLD FIRST-FOLD MOTION SYSTEM */
+nav .inner {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: navDrop 700ms cubic-bezier(.22,.61,.36,1) forwards 160ms;
+}
+
+.hero::before,
+.hero::after {
+  opacity: 0;
+  animation: cornerDraw 1000ms cubic-bezier(.22,.61,.36,1) forwards 420ms;
+}
+
+.hero-label {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: heroTextIn 700ms cubic-bezier(.22,.61,.36,1) forwards 520ms;
+}
+
+.hero-label::before,
+.section-label::before {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: lineReveal 900ms cubic-bezier(.22,.61,.36,1) forwards 650ms;
+}
+
+.hero-left h1,
+.hero-sub,
+.hero-seeking,
+.hero-cta,
+.hero-photo-wrap,
+.stats-row {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.hero-left h1 {
+  transform: translateY(34px) scale(.985);
+  animation: heroTitleIn 950ms cubic-bezier(.16,1,.3,1) forwards 760ms;
+}
+
+.hero-sub {
+  transform: translateY(22px);
+  animation: heroTextIn 760ms cubic-bezier(.22,.61,.36,1) forwards 1040ms;
+}
+
+.hero-seeking {
+  transform: translateY(22px);
+  animation: heroTextIn 760ms cubic-bezier(.22,.61,.36,1) forwards 1180ms;
+}
+
+.hero-cta {
+  transform: translateY(22px);
+  animation: heroTextIn 760ms cubic-bezier(.22,.61,.36,1) forwards 1320ms;
+}
+
+.hero-photo-wrap {
+  transform: translateY(28px) scale(.97);
+  transform-style: preserve-3d;
+  animation: photoIn 1050ms cubic-bezier(.16,1,.3,1) forwards 980ms;
+  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+  will-change: transform;
+}
+
+.hero-photo-wrap:hover {
+  transform: translateY(-8px) rotateX(2.5deg) rotateY(-3deg) scale(1.012);
+  box-shadow: 0 28px 80px rgba(0,0,0,.42), 0 0 0 1px rgba(201,168,76,.14);
+  border-color: rgba(201,168,76,.55);
+}
+
+.hero-photo {
+  transition: transform 500ms ease, filter 500ms ease;
+}
+
+.hero-photo-wrap:hover .hero-photo {
+  transform: scale(1.035);
+  filter: grayscale(12%) contrast(1.08);
+}
+
+.stats-row {
+  transform: translateY(26px);
+  animation: heroTextIn 760ms cubic-bezier(.22,.61,.36,1) forwards 1620ms;
+}
+
+.stat-card {
+  transition: transform 280ms ease, background 280ms ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  background: #323234;
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.24), transparent 34%);
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 90%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.42), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+
+.btn-gold:hover::after {
+  animation: buttonShine 820ms ease;
+}
+
+.cap-icon {
+  display: inline-block;
+  transform-origin: center;
+  animation-duration: 2.6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform, filter;
+}
+
+.cap-card:nth-child(1) .cap-icon { animation-name: rocketFloat; }
+.cap-card:nth-child(2) .cap-icon { animation-name: chartPulse; }
+.cap-card:nth-child(3) .cap-icon { animation-name: handshakeSway; }
+.cap-card:nth-child(4) .cap-icon { animation-name: brainGlow; }
+
+@keyframes navDrop {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cornerDraw {
+  from { opacity: 0; transform: scale(.88); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes heroTitleIn {
+  from { opacity: 0; transform: translateY(34px) scale(.985); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes heroTextIn {
+  from { opacity: 0; transform: translateY(22px); filter: blur(3px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes photoIn {
+  from { opacity: 0; transform: translateY(28px) scale(.97); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes lineReveal {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes buttonShine {
+  from { left: -130%; }
+  to { left: 140%; }
+}
+
+@keyframes rocketFloat {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(-10deg); }
+}
+
+@keyframes chartPulse {
+  0%,100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-12px) scale(1.18); }
+}
+
+@keyframes handshakeSway {
+  0%,100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-10deg) scale(1.08); }
+  75% { transform: rotate(10deg) scale(1.08); }
+}
+
+@keyframes brainGlow {
+  0%,100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(201,168,76,0)); }
+  50% { transform: scale(1.18); filter: drop-shadow(0 0 16px rgba(201,168,76,.6)); }
+}
+
+@media (max-width: 768px) {
+  .hero-photo-wrap:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .hero-left h1 {
+    animation-delay: 520ms;
+  }
+  .hero-photo-wrap {
+    animation-delay: 300ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -579,15 +698,15 @@
 
     <div class="stats-row fade-up">
       <div class="stat-card">
-        <span class="stat-num">5+</span>
+        <span class="stat-num count" data-target="5" data-suffix="+">0</span>
         <span class="stat-label">Years Experience</span>
       </div>
       <div class="stat-card">
-        <span class="stat-num">Rs 200M</span>
+        <span class="stat-num count" data-prefix="Rs " data-target="200" data-suffix="M">0</span>
         <span class="stat-label">APE — ICICI Prudential</span>
       </div>
       <div class="stat-card">
-        <span class="stat-num">3</span>
+        <span class="stat-num count" data-target="3">0</span>
         <span class="stat-label">Industries Built In</span>
       </div>
     </div>
@@ -773,5 +892,48 @@
   }, { threshold: 0.3 });
   document.querySelectorAll('.skill-list').forEach(el => skillObserver.observe(el));
 </script>
+
+<script>
+  // Premium button light-follow
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      btn.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+      btn.style.setProperty('--my', `${e.clientY - rect.top}px`);
+    });
+  });
+
+  // First-fold stat counters
+  const counters = document.querySelectorAll('.count');
+  const runCounter = (counter) => {
+    if (counter.dataset.done === 'true') return;
+    counter.dataset.done = 'true';
+
+    const target = Number(counter.dataset.target || 0);
+    const prefix = counter.dataset.prefix || '';
+    const suffix = counter.dataset.suffix || '';
+    const duration = 1500;
+    const start = performance.now();
+
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.round(target * eased);
+      counter.textContent = `${prefix}${value}${suffix}`;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  };
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) runCounter(entry.target);
+    });
+  }, { threshold: 0.6 });
+
+  counters.forEach(counter => counterObserver.observe(counter));
+</script>
+
 </body>
 </html>
