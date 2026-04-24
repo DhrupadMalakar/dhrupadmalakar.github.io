@@ -263,7 +263,7 @@ nav.scrolled{padding:16px 60px;background:rgba(6,6,6,.92);backdrop-filter:blur(2
 
 /* CONTACT */
 #contact{background:var(--bg);padding:130px 60px;text-align:center;position:relative;overflow:hidden;}
-#contact::before{content:'DKM';position:absolute;right:-2rem;bottom:-3rem;font-family:var(--ff);font-size:24vw;font-weight:300;line-height:1;color:rgba(201,168,76,.03);pointer-events:none;user-select:none;}
+#contact::before{content:'DKM';position:absolute;right:-1rem;bottom:-2rem;font-family:var(--ff);font-size:28vw;opacity:.025;font-weight:300;line-height:1;color:rgba(201,168,76,.03);pointer-events:none;user-select:none;}
 .ct-eyebrow{font-family:var(--fu);font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:40px;display:flex;align-items:center;justify-content:center;gap:14px;}
 .ct-eyebrow::before,.ct-eyebrow::after{content:'';width:36px;height:1px;background:var(--gold);}
 .ct-heading{font-family:var(--ff);font-size:clamp(52px,8.5vw,120px);font-weight:300;line-height:.94;letter-spacing:-.03em;margin-bottom:52px;}
@@ -288,29 +288,81 @@ footer p{font-family:var(--fu);font-size:10px;letter-spacing:.1em;color:var(--mu
   .stats-row{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:900px){
-  nav{padding:18px 24px;}
-  nav.scrolled{padding:12px 24px;}
+  /* nav */
+  nav{padding:18px 20px;}
+  nav.scrolled{padding:12px 20px;}
   .nav-links,.scroll-hint,.nav-status{display:none;}
-  .hero{grid-template-columns:1fr;}
+
+  /* hero */
+  .hero{grid-template-columns:1fr;min-height:100svh;}
   .hero-right,.hero::before{display:none;}
-  .hero-left{padding:0 24px 60px;}
-  .hero-foot{flex-direction:column;align-items:flex-start;gap:24px;}
-  .sec{padding:80px 24px;}
-  .sec-title{white-space:normal;font-size:clamp(28px,6vw,42px);}
-  .exp-item{grid-template-columns:1fr;gap:20px;padding:36px 0;}
-  .cap-item{grid-template-columns:60px 1fr;gap:28px;}
-  .proj-grid{grid-template-columns:1fr;}
+  .hero-left{padding:100px 20px 56px;}
+  .hero-eye{font-size:9px;letter-spacing:.18em;margin-bottom:24px;}
+  .hero-name{font-size:clamp(52px,14vw,80px);margin-bottom:36px;}
+  .hero-foot{flex-direction:column;align-items:flex-start;gap:20px;}
+  .hero-desc{font-size:14px;max-width:100%;}
+  .hero-btns{display:flex;flex-direction:column;width:100%;gap:10px;}
+  .btn{width:100%;text-align:center;padding:16px 20px;font-size:10px;}
+
+  /* marquee */
+  .marquee-wrap{padding:12px 0;}
+
+  /* sections */
+  .sec{padding:64px 20px;}
+  .sec-hdr{gap:14px;margin-bottom:48px;}
+  .sec-title{white-space:normal;font-size:clamp(26px,7vw,40px);}
+  .sec-num{font-size:11px;}
+
+  /* about */
+  .about-manifesto{font-size:clamp(18px,5vw,24px);}
+  .data-row{padding:14px 0;}
+  .data-val{font-size:14px;}
   .stats-row{grid-template-columns:1fr 1fr;}
-  .stat-cell{padding:28px;}
-  .cert-tabs{overflow-x:auto;}
-  footer{flex-direction:column;gap:10px;text-align:center;padding:24px;}
-  .sticky-cta{display:block;}
-  body{padding-bottom:80px;}
-}
-@media(max-width:480px){
-  .ct-links{flex-direction:column;}
-  .ct-link{justify-content:center;}
+  .stat-cell{padding:24px 20px;}
+  .stat-n{font-size:38px;}
+
+  /* experience */
+  .exp-item{grid-template-columns:1fr;gap:16px;padding:32px 0;}
+  .exp-idx{font-size:36px;margin-bottom:8px;}
+  .exp-role{font-size:clamp(20px,6vw,28px);}
+
+  /* capabilities */
+  .cap-item{grid-template-columns:52px 1fr;gap:20px;padding:36px 0;}
+  .cap-n{font-size:32px;}
+  .cap-title{font-size:clamp(18px,5vw,24px);}
+
+  /* skills */
+  .sk-items li{font-size:16px;}
+
+  /* projects */
+  .proj-grid{grid-template-columns:1fr;}
+  .proj-card{padding:36px 24px;}
+  .proj-name{font-size:22px;}
+
+  /* certifications */
+  .cert-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;padding-bottom:2px;}
+  .cert-tab{padding:14px 20px;font-size:9px;}
   .cert-grid{grid-template-columns:1fr;}
+
+  /* contact */
+  #contact{padding:80px 20px;}
+  .ct-heading{font-size:clamp(44px,13vw,80px);}
+  .ct-sub{font-size:14px;}
+  .ct-links{flex-direction:column;}
+  .ct-link{justify-content:center;padding:16px 20px;font-size:9px;}
+
+  /* footer */
+  footer{flex-direction:column;gap:10px;text-align:center;padding:20px;}
+
+  /* sticky */
+  .sticky-cta{display:block;}
+  body{padding-bottom:72px;}
+}
+@media(max-width:380px){
+  .hero-name{font-size:13vw;}
+  .stat-n{font-size:32px;}
+  .ct-heading{font-size:12vw;}
+  .sec-title{font-size:7vw;}
 }
 </style>
 </head>
